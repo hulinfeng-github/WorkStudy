@@ -1,5 +1,5 @@
-### cmake `推荐`
-
+[toc]
+## cmake `推荐`
 - CMakeLists.txt模版
 
 ```txt

@@ -1,3 +1,4 @@
+[toc]
 ## 删除分支
 - 强制删除本地分支：git branch -D local_branch_name
 - 删除远端分支：git push origin -d origin_branch_name 或者 git push origin :origin_branch_name
