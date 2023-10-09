@@ -1,4 +1,20 @@
-[toc]
+**目录**
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [删除分支](#删除分支)
+- [推送到远端分支](#推送到远端分支)
+- [设置远端分支与本地关联](#设置远端分支与本地关联)
+- [贮藏](#贮藏)
+- [拉取远端指定分支](#拉取远端指定分支)
+- [git合并本地commit](#git合并本地commit)
+- [解决分支冲突](#解决分支冲突)
+- [贮藏](#贮藏-1)
+- [tag用法](#tag用法)
+
+<!-- /code_chunk_output -->
+
 ## 删除分支
 - 强制删除本地分支：git branch -D local_branch_name
 - 删除远端分支：git push origin -d origin_branch_name 或者 git push origin :origin_branch_name
@@ -128,4 +144,4 @@ git标签分为两种类型：轻量标签和附注标签。轻量标签是指�
 
 这样做的好处是，远程主干上的历史永远是线性的。每个人在本地分支解决冲突，不会在主干上产生冲突。
 
-
+## git diff用法 
