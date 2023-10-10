@@ -1,4 +1,5 @@
 **目录**
+
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
@@ -12,8 +13,12 @@
 - [解决分支冲突](#解决分支冲突)
 - [贮藏](#贮藏-1)
 - [tag用法](#tag用法)
+- [linux和windows差异引起的问题](#linux和windows差异引起的问题)
+- [分支工作合并到主干](#分支工作合并到主干)
+- [git diff用法](#git-diff用法)
 
 <!-- /code_chunk_output -->
+
 
 ## 删除分支
 - 强制删除本地分支：git branch -D local_branch_name
@@ -53,16 +58,16 @@ $ git rebase --abort
 ```
 ## 贮藏
 - 贮藏 
-    ```git stash save "注释"```
+    `git stash save "注释"`
 - 查看贮藏具体内容
-    ```git stash show -p stash@{3}```
+    `git stash show -p stash@{3}`
 
 ## tag用法
 git标签分为两种类型：轻量标签和附注标签。轻量标签是指向提交对象的引用，附注标签则是仓库中的一个独立对象。建议使用附注标签。
 1. 创建轻量标签
-```git tag v0.1.2-light```
+`git tag v0.1.2-light`
 2. 创建附注标签
-    ```git tag -a v0.1.2 -m “0.1.2版本”```
+    `git tag -a v0.1.2 -m “0.1.2版本”`
 创建轻量标签不需要传递参数，直接指定标签名称即可。
 创建附注标签时，参数a即annotated的缩写，指定标签类型，后附标签名。参数m指定标签说明，说明信息会保存在标签对象中。
 
@@ -70,23 +75,23 @@ git标签分为两种类型：轻量标签和附注标签。轻量标签是指�
 与切换分支命令相同，用git checkout [tagname]
 查看标签信息
 用git show命令可以查看标签的版本信息：
-    ```git show v0.1.2```
+    `git show v0.1.2`
 
 - 删除标签
 误打或需要修改标签时，需要先将标签删除，再打新标签。
-    ```git tag -d v0.1.2 # 删除标签```
+    `git tag -d v0.1.2 # 删除标签`
 参数d即delete的缩写，意为删除其后指定的标签。
 
 - 给指定的commit打标签
 打标签不必要在head之上，也可在之前的版本上打，这需要你知道某个提交对象的校验和（通过git log获取）。
 
 - 补打标签
-    ``` git tag -a v0.1.1 9fbc3d0 ```
+    ` git tag -a v0.1.1 9fbc3d0 `
 
 - 标签发布
 通常的git push不会将标签对象提交到git服务器，我们需要进行显式的操作：
-    ```git push origin v0.1.2 # 将v0.1.2标签提交到git服务器```
-    ```git push origin –tags # 将本地所有标签一次性提交到git服务器```
+    `git push origin v0.1.2 # 将v0.1.2标签提交到git服务器`
+    `git push origin –tags # 将本地所有标签一次性提交到git服务器`
 
 - 注意：如果想看之前某个标签状态下的文件，可以这样操作
 1. git tag  查看当前分支下的标签
@@ -94,14 +99,14 @@ git标签分为两种类型：轻量标签和附注标签。轻量标签是指�
 3. cat  test.txt  查看某个文件
 
 - 显示所有标签
-    ```git tag -l```
+    `git tag -l`
 
 - 删除标签
     - 删除本地tag
-    ```git tag -d tag-name```
+    `git tag -d tag-name`
 
     - 删除远程tag
-    ```git push origin :refs/tags/tag-name```
+    `git push origin :refs/tags/tag-name`
 
 ## linux和windows差异引起的问题
 现象：当git clone下来的代码,明明什么都没动,但是却发现提交时,几乎所有的文件都是不同的. 原因：权限或换行符不同导致的。通过git diff 某一个文件,可以看到^M这样的标记的话,说明是由于linux和windows的换行符不同导致的。换行符解决后还是有很多不同,可能是权限不同导致的
@@ -113,35 +118,31 @@ git标签分为两种类型：轻量标签和附注标签。轻量标签是指�
 - 创建本地分支 git checkout -b dev 新建并切换到本地dev分支
 
 - 本地分支的开发流程 git在一个分支上开发一段时间后，会留下很多次的commit, 当一个功能阶段性的完成后，需要将该分支merge到主干，如果直接使用 git merge branch 会将该分支下所有的提交都merge到主干，有时这并不是我们所需要的，我们只需要总结一下该分支，然后以该总结的commit合并到主干就可以了。具体操作： 1、git checkout master
-
-- git merge --squash branch
-
-- git commit -m "branch功能完成，合并到主干"
-
+`git merge --squash branch`
+`git commit -m "branch功能完成，合并到主干"`
 经过以上的3条命令，可以看到主分支上只有一个提交记录，分支的多次提交都已经合并提交完成！
 
 - 本地分支工作流程
-
 去自己的工作分支 $ git checkout work
-
 工作 ....
-
 提交工作分支的修改 $ git commit -a
-
 回到主分支 $ git checkout master
-
 获取远程最新的修改，此时不会产生冲突 $ git pull
-
 回到工作分支 $ git checkout work
-
 用rebase合并主干的修改，如果有冲突在此时解决 $ git rebase master
-
 回到主分支 $ git checkout master
-
 合并工作分支的修改，此时不会产生冲突。 $ git merge work
-
 提交到远程主干 $ git push
-
 这样做的好处是，远程主干上的历史永远是线性的。每个人在本地分支解决冲突，不会在主干上产生冲突。
 
 ## git diff用法 
+- 本地修改了文件，还没有 git add ，可以这样导出。
+格式为：git diff 【修改的文件或文件夹】>>【差异文件名称】
+
+    `git diff device.mk >> device.diff`
+    `git diff device.mk >> device.pacth`
+device.diff 、device.pacth 是自己命名的，名称自取，后缀一般使用 .diff 和 .path。
+
+- 导出临近两个 comit 之间的 diff
+git diff 【old-commit-id】【new-commit-id】>> 【差异文件名称】这样导出的差异文件，和 git show new-commit-id 的结果一样。
+`git diff 03a5cc46f1 a16f3bb31b >> commit.diff`
