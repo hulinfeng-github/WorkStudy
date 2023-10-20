@@ -14,7 +14,6 @@
 - [贮藏](#贮藏-1)
 - [tag用法](#tag用法)
 - [linux和windows差异引起的问题](#linux和windows差异引起的问题)
-- [分支工作合并到主干](#分支工作合并到主干)
 - [git diff用法](#git-diff用法)
 
 <!-- /code_chunk_output -->
@@ -38,7 +37,7 @@ git stash save "test-cmd-stash"
 
 ## git合并本地commit
 git rebase -i commitID  
-*[//]:其中，-i 的参数是不需要合并的 commit 的 hash 值
+*[//]:其中-i的参数是不需要合并的commit的hash值
 
 ## 解决分支冲突
 如果你想让”mywork“分支历史看起来像没有经过任何合并一样，也可以用 git rebase，如下所示:
@@ -113,27 +112,6 @@ git标签分为两种类型：轻量标签和附注标签。轻量标签是指�
 
 ```git config --global core.whitespace cr-at-eol // 无视换行符```
 ```git config core.fileMode false //忽视权限的不同```
-
-## 分支工作合并到主干
-- 创建本地分支 git checkout -b dev 新建并切换到本地dev分支
-
-- 本地分支的开发流程 git在一个分支上开发一段时间后，会留下很多次的commit, 当一个功能阶段性的完成后，需要将该分支merge到主干，如果直接使用 git merge branch 会将该分支下所有的提交都merge到主干，有时这并不是我们所需要的，我们只需要总结一下该分支，然后以该总结的commit合并到主干就可以了。具体操作： 1、git checkout master
-`git merge --squash branch`
-`git commit -m "branch功能完成，合并到主干"`
-经过以上的3条命令，可以看到主分支上只有一个提交记录，分支的多次提交都已经合并提交完成！
-
-- 本地分支工作流程
-去自己的工作分支 $ git checkout work
-工作 ....
-提交工作分支的修改 $ git commit -a
-回到主分支 $ git checkout master
-获取远程最新的修改，此时不会产生冲突 $ git pull
-回到工作分支 $ git checkout work
-用rebase合并主干的修改，如果有冲突在此时解决 $ git rebase master
-回到主分支 $ git checkout master
-合并工作分支的修改，此时不会产生冲突。 $ git merge work
-提交到远程主干 $ git push
-这样做的好处是，远程主干上的历史永远是线性的。每个人在本地分支解决冲突，不会在主干上产生冲突。
 
 ## git diff用法 
 - 本地修改了文件，还没有 git add ，可以这样导出。

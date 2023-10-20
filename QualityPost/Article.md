@@ -38,6 +38,22 @@
 
 - [MQTT、CoAP、HTTP比较](https://blog.csdn.net/bandaoyu/article/details/89364025)
 
+- [DHCP获取过程](https://www.cnblogs.com/Wendy-r/p/12679241.html)
+
+- [MTU](https://info.support.huawei.com/info-finder/encyclopedia/zh/MTU.html)
+
+- [STUN](https://info.support.huawei.com/info-finder/encyclopedia/zh/STUN.html)
+
+- [wireshark 抓包分析](https://zhuanlan.zhihu.com/p/142665708)
+
+- [tcpdump](https://www.cnblogs.com/wongbingming/p/13212306.html)
+
+- [网络包种类分析](https://cloud.tencent.com/developer/article/1982402)
+
+- [wireshark过滤规则用法](https://blog.csdn.net/wojiaopanpan/article/details/69944970)
+
+- [TCP重传](https://blog.csdn.net/wojiaopanpan/article/details/69944970)
+
 ## C语言
 - [宏函数](https://blog.csdn.net/imgosty/article/details/81901183)
 - [typedef用法](https://zhuanlan.zhihu.com/p/81221267)
