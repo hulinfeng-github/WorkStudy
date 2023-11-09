@@ -15,6 +15,7 @@
 - [tag用法](#tag用法)
 - [linux和windows差异引起的问题](#linux和windows差异引起的问题)
 - [git diff用法](#git-diff用法)
+- [git 有子模块时候的同步](#git-有子模块时候的同步)
 
 <!-- /code_chunk_output -->
 
@@ -124,3 +125,11 @@ device.diff 、device.pacth 是自己命名的，名称自取，后缀一般使�
 - 导出临近两个 comit 之间的 diff
 git diff 【old-commit-id】【new-commit-id】>> 【差异文件名称】这样导出的差异文件，和 git show new-commit-id 的结果一样。
 `git diff 03a5cc46f1 a16f3bb31b >> commit.diff`
+
+`git apply 0001-limit-log-function.patch`
+
+## git 有子模块时候的同步
+1. git reset --hard <commit_id>
+2. git submodule sync
+3. git submodule update --init --recursive
+4. git clean -df
