@@ -9,6 +9,7 @@
 - [好用的vscode插件](#好用的vscode插件)
 - [wireshark使用技巧](#wireshark使用技巧)
   - [过滤规则](#过滤规则)
+- [stackoverflow搜索技巧](#stackoverflow搜索技巧)
 
 <!-- /code_chunk_output -->
 
@@ -63,4 +64,13 @@
     - tcp.len>=20，TCP数据包中的IP数据包
     - ip.len==20，整个IP数据包
     - frame.len==20，整个数据包
+
+- 常用过滤条件
+    wlan.addr == 10:91:a8:a9:58:d4 || (wlan.addr == d4:bd:4f:13:02:f8 && (wlan.fc == 0x8000 || wlan.fc == 0xd400 || wlan.addr == ff:ff:ff:ff:ff:ff)) 
+
+    (((wlan.sa == b0:df:c1:0f:12:11) && (wlan.da == ff:ff:ff:ff:ff:ff)) || ((wlan.sa == 40:4c:ca:41:00:80)) && (wlan.da == b0:df:c1:0f:12:11))
+
+    wlan.addr == 40:4c:ca:41:00:80 || (wlan.addr == b0:df:c1:0f:12:11 && (wlan.fc == 0x8000 || wlan.fc == 0xd400 || wlan.addr == ff:ff:ff:ff:ff:ff)) 
+## stackoverflow搜索技巧
+- [stackoverflow搜索](https://blog.csdn.net/weixin_44671418/article/details/107515048)
 

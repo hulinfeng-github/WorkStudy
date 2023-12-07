@@ -52,7 +52,7 @@
 
 - [wireshark过滤规则用法](https://blog.csdn.net/wojiaopanpan/article/details/69944970)
 
-- [TCP重传](https://blog.csdn.net/wojiaopanpan/article/details/69944970)
+- [TCP重传](https://cloud.tencent.com/developer/article/1982402)
 
 ## C语言
 - [宏函数](https://blog.csdn.net/imgosty/article/details/81901183)

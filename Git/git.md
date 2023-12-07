@@ -16,6 +16,7 @@
 - [linux和windows差异引起的问题](#linux和windows差异引起的问题)
 - [git diff用法](#git-diff用法)
 - [git 有子模块时候的同步](#git-有子模块时候的同步)
+- [git 分支操作](#git-分支操作)
 
 <!-- /code_chunk_output -->
 
@@ -133,3 +134,13 @@ git diff 【old-commit-id】【new-commit-id】>> 【差异文件名称】这样
 2. git submodule sync
 3. git submodule update --init --recursive
 4. git clean -df
+
+## git 分支操作
+1. 可以通过下面的命令在新分支创建的同时切换分支
+`git checkout -b newBranch`
+2. 第一次创建并切换分支
+`git checkout -b zhanghanlun origin/zhanghanlun`
+3. 删除分支
+`git branch -D 分支名`
+4. 设置本地分支和远端分支建立关系
+`git push --set-upstream origin 分支名`
