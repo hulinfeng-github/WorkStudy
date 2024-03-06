@@ -29,7 +29,7 @@
 git push origin local_branch_name:origin_branch_name
 
 ## 设置远端分支与本地关联
-git branch --set-upstream-to=origin/origin_branch_name
+git branch --set-upstream-to=origin/origin_branch_name localbranch_name
 
 ## 贮藏
 git stash save "test-cmd-stash"
@@ -140,7 +140,7 @@ git diff 【old-commit-id】【new-commit-id】>> 【差异文件名称】这样
 `git checkout -b newBranch`
 2. 第一次创建并切换分支
 `git checkout -b zhanghanlun origin/zhanghanlun`
-3. 删除分支
+3. 删除本地分支
 `git branch -D 分支名`
 4. 设置本地分支和远端分支建立关系
 `git push --set-upstream origin 分支名`
