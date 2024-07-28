@@ -144,3 +144,12 @@ git diff 【old-commit-id】【new-commit-id】>> 【差异文件名称】这样
 `git branch -D 分支名`
 4. 设置本地分支和远端分支建立关系
 `git push --set-upstream origin 分支名`
+
+## windows平台下使用git add，git deploy 文件时经常出现“warning: LF will be replaced by CRLF” 的提示。
+原因：在windows下，新建文件时，默认的换行符是CRLF，而在linux下，新建文件时，默认的换行符是LF。所以，当我们在windows下使用git add . 或者 git deploy . 时，git会自动将CRLF替换为LF，所以会出现上面的提示。
+
+解决方法：在git的全局配置中，设置换行符的转换方式为false，即不进行转换。
+
+命令如下：
+
+`git config --global core.autocrlf false`
