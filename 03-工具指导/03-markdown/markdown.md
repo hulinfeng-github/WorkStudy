@@ -180,3 +180,5 @@ Note right of C: 没人陪我玩
 ## 官方教程文档
 - [官方文档](https://markdown.com.cn/basic-syntax/)
 
+## 插入目录
+ctrl+shift+p 然后选择 `Markdown Preview Enhanced: Create Toc `命令来创建 TOC。多个 TOCs 可以被创建。如果你想要在你的 TOC 中排除一个标题，请在你的标题 后面 添加 {ignore=true} 即可。
