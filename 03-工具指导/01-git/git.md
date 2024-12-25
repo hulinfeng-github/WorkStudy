@@ -17,6 +17,7 @@
 - [git diff用法](#git-diff用法)
 - [git 有子模块时候的同步](#git-有子模块时候的同步)
 - [git 分支操作](#git-分支操作)
+- [windows平台下使用git add，git deploy 文件时经常出现“warning: LF will be replaced by CRLF” 的提示。](#windows平台下使用git-addgit-deploy-文件时经常出现warning-lf-will-be-replaced-by-crlf-的提示)
 
 <!-- /code_chunk_output -->
 
@@ -108,6 +109,39 @@ git标签分为两种类型：轻量标签和附注标签。轻量标签是指�
 
     - 删除远程tag
     `git push origin :refs/tags/tag-name`
+
+```
+/// 查看标签
+// 打印所有标签
+git tag
+// 打印符合检索条件的标签
+git tag -l 1.*.*
+// 查看对应标签状态
+git checkout 1.0.0
+
+/// 创建标签(本地)
+// 创建轻量标签
+git tag 1.0.0-light
+// 创建带备注标签(推荐)
+git tag -a 1.0.0 -m "这是备注信息"
+// 针对特定commit版本SHA创建标签
+git tag -a 1.0.0 0c3b62d -m "这是备注信息"
+
+/// 删除标签(本地)
+git tag -d 1.0.0
+
+/// 将本地标签发布到远程仓库
+// 发送所有
+git push origin --tags
+// 指定版本发送
+git push origin 1.0.0
+
+/// 删除远程仓库对应标签
+// Git版本 > V1.7.0
+git push origin --delete 1.0.0
+// 旧版本Git
+git push origin :refs/tags/1.0.0
+```
 
 ## linux和windows差异引起的问题
 现象：当git clone下来的代码,明明什么都没动,但是却发现提交时,几乎所有的文件都是不同的. 原因：权限或换行符不同导致的。通过git diff 某一个文件,可以看到^M这样的标记的话,说明是由于linux和windows的换行符不同导致的。换行符解决后还是有很多不同,可能是权限不同导致的
