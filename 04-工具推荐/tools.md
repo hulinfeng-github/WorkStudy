@@ -74,3 +74,8 @@
 ## stackoverflow搜索技巧
 - [stackoverflow搜索](https://blog.csdn.net/weixin_44671418/article/details/107515048)
 
+## 禁用数字签名
+[禁用数字签名](https://www.xitongzhijia.net/xtjc/20210831/223863.html)
+[同上](https://jingyan.baidu.com/article/624e74594dbc8d34e8ba5aa6.html)
+
+
